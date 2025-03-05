@@ -1,11 +1,17 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Проверка, что запрос пришел через AJAX
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
     exit('Direct access not allowed');
 }
 
+
 // Подключение WordPress
-require_once('../../../../wp-load.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
 
 // Проверка nonce для безопасности
 $data = json_decode(file_get_contents('php://input'), true);
