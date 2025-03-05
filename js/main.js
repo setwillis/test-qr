@@ -32,7 +32,7 @@ document.payment.addEventListener('submit', e => {
 	data.account = document.payment.account.value
 	data.amount = document.payment.amount.value
 	data.platform = getMobileOperatingSystem()
-	fetch('back', {
+	fetch('/back.php', {
 		method: 'POST',
 		body: JSON.stringify(data),
 	})
